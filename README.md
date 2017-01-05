@@ -7,9 +7,9 @@ There may be occasions when it is desirable to disable the heartbeat function. F
 
 The heartbeat feature is controlled internally by CICS and so there is no official method to turn it off. This article explains a simple way to achieve this with CICS TS V5R2 and later releases.
 ## Solution
-The CISP task is attached when a CICS region starts up, and continues for the lifetime of the region. It runs program DFHISPHP, which is normally found in the SDFHLOAD library in the DFHRPL concatenation of the CICS JCL job. A new version of DFHPHP, which does very little, needs to be created as an assembler program. This then needs to be linked into a library that appears higher in the DFHRPL concatenation than SDFHLOAD. When the region starts up CISP will be attached, run the new program and then terminate. This will leave the region without the ability to send heartbeat messages for any of the IPIC connections that it has acquired.
+The CISP task is attached when a CICS region starts up, and continues for the lifetime of the region. It runs program DFHISPHP, which is normally found in the SDFHLOAD library within the DFHRPL concatenation of the CICS JCL job. A new version of DFHISPHP, which does very little, needs to be created as an assembler program. This then must be linked into a library that appears higher in the DFHRPL concatenation than SDFHLOAD. When the region starts up CISP will be attached, run the new version of DFHISPHP and then terminate. This will leave the region without the ability to send heartbeat messages for any of the IPIC connections that it has acquired.
 
 The following restrictions apply to this solution:-
 * Once disabled, heartbeat processing will remain off for the lifetime of the region.
-* It only prevents outbound heartbeat processing and so must be applied to the regions at both ends of a connection if the aim is to completely turn off heartbeats in both directions.
-* This method does not permit the selective controlling of heartbeat processing for some of the IPIC connections in a region.
+* This solution only prevents outbound heartbeat processing and must be applied to the regions at both ends of a connection if the aim is to completely turn off heartbeats in both directions.
+* It applies to all the IPCONNs in a region, irrespective of whether they are installed and acquired during start-up, or once the region is running. It does not allow some of the IPCONNs to have heartbeat processing turned on, while others have it disabled.
