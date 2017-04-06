@@ -26,5 +26,5 @@ This project is licensed under [Apache License Version 2.0](LICENSE).
 
 ## Reference
 
-* For further details on using the IPIC heartbeat refer to this [Knowledge Center article]  (http://www.ibm.com/support/knowledgecenter/SSGMCP_5.3.0/com.ibm.cics.ts.intercommunication.doc/topics/dfht1_isc_tcpip.html)
+* For further details on using the IPIC heartbeat refer to this [Knowledge Center article](http://www.ibm.com/support/knowledgecenter/SSGMCP_5.3.0/com.ibm.cics.ts.intercommunication.doc/topics/dfht1_isc_tcpip.html)
 
