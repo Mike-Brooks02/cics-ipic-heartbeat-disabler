@@ -22,7 +22,7 @@ The following restrictions apply to this solution:
 
 ## Supporting files
 
-* ['src/dfhisphp.asm'](src/dfhisphp.asm) - New version of program DFHISPHP.
+* [`src/dfhisphp.asm`](src/dfhisphp.asm) - New version of program DFHISPHP.
 
 ## License
 
